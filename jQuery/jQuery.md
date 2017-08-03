@@ -55,3 +55,17 @@ $("input:password").css("background","pink").val("1234");
 $("input:button").val("회언가입");
 });
 ```
+
+select 선택자와 Timeout,Interval
+```js
+$(function(){
+// 요소:selected -> select태그의 option객체 중에서 선택된 태그를 가리킬 때 사용
+// setTimeout(호출할 함수명 or 익명함수(function(){}),초단위(1000)) 한번만 실행
+// setInterval(호출할 함수명 or 익명함수(function(){}),초단위(1000)) 계속 반복해서 실행
+		
+setTimeout(function(){
+	var value=$("select > option:selected").val()
+	alert(value)
+	},2000); // 2초뒤에 선택한 항목을 화면에 출력	
+});
+```
