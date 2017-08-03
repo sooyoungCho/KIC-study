@@ -1,7 +1,7 @@
 # jQuery
 
 
-부모와 자식태그 관계 정리
+### 부모와 자식태그 관계 정리
 ```js
 //부모태그 > 자식태그->부모태그 바로 밑 자식태그를 선택할때 사용
 //부모태그  자식태그-> 부모태그 밑의 모든 자손태그
@@ -11,7 +11,7 @@ $("body div").css("border","3px solid navy");
 $("span+a").next().css("font-size","100pt"); // next() 현재항목의 다음항목을 의미
 ```
 
-속성선택자
+### 속성선택자
 ```js
 $(function(){
 /*
@@ -35,7 +35,7 @@ $("input[id*=한국]").css("background","red");
 $("div[id$=2]").css("background","brown");
 });
 ```
-입력양식 속성 선택자
+### 입력양식 속성 선택자
 ```js
 $(function(){
 /*
@@ -56,7 +56,7 @@ $("input:button").val("회언가입");
 });
 ```
 
-select 선택자와 Timeout,Interval
+### select 선택자와 Timeout,Interval
 ```js
 $(function(){
 // 요소:selected -> select태그의 option객체 중에서 선택된 태그를 가리킬 때 사용
@@ -68,4 +68,29 @@ setTimeout(function(){
 	alert(value)
 	},2000); // 2초뒤에 선택한 항목을 화면에 출력	
 });
+```
+
+### 같은 태그에서 속성이 없을 때 구분을 가능하게 하는 선택자
+```js
+/*인덱스 번호로 찾는다
+요소:odd -> 홀수
+요소:even -> 짝수
+요소:first -> 첫번째 위치를 가진 태그 찾기
+요소:last - > 마지막번째 위치를 가진 태그찾기
+
+요소:contatins(찾는문자열) -> 찾는 문자열을 가진 태그 찾기
+요소:eq(n) -> n번째 위치를 가진 태그찾기
+요소:gt(n) -> n번째 보다 큰 위치를 가진 태그찾기 
+요소:lt(n) -> n번째 보다 작은위치를 가진 태그찾기 
+요소:not(선택자) - > 선택자와 일치 하지 않은 태그찾기
+요소:has(특정태그) - > 특정태그를 찾을때 사용 
+*/
+$("tr:even").css("font-size","23pt").css("background","pink")
+$("tr:first").css("font-size","23pt").css("background","yellow")
+$("tr:last").css("font-size","23pt").css("background","red")
+$("tr:eq(0)").css("font-size","23pt").css("background","yellow");
+$("td:contains(A형)").css("font-size","23pt").css("background","purple");
+$("tr:gt(2)").css("font-family","궁서체").css("font-size","16pt").css("color","red");
+$("tr:has(th)").css("color","green");
+$("tr:not(th)").css("color","green");
 ```
