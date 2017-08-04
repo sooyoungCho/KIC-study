@@ -1,0 +1,50 @@
+# jQuery(event)
+
+### 연결시켜주는 함수 bind
+```js
+$(function(){
+	//형식) window.on이벤트종류명=호출할 함수명 또는 익명함수
+	//형식2)window.addEventListener(이벤트종류,실행할 함수명)
+	//형식3)$(이벤트발생 대상자 선택자).bind(등록할 이벤트 종류명, 함수명)
+	// 링크 태그 a를 이동하지 못하게 하는 기능 preventDefault
+	//1. 매개변수를 입력받지 않고 처리할때는 return false
+	//2. 매개변수를 입력받아서 처리할때는 (event) ->e.preventDefault(호출)
+	//event 객체를 사용할때는 
+	//마우스의 클릭했을때의 좌표값
+	//키보드의 키코드값을 구하고자 할때
+	//이벤트를 발생 시킨 대상자를 확인
+	
+	//$('a').bind('click',function(){
+	$('a').bind('click',function(event){
+	$('img').attr('src',$(this).attr('href'));
+	//return false
+	event.preventDefault()
+	});
+});
+```
+### toggleClass
+```js
+$(function(){
+	$('p').bind('click',function(){
+	//$('p').click(function(){ // 하나만 연결할때는 click을 사용해도 됨
+	$(this).toggleClass('blue') // addClass와 removeClass 동시에 가능
+    })
+});
+```
+
+### 마우스이벤트
+```js
+$(function(){
+$('img').bind({
+    mouseout:function(){
+	$('img').attr('src','../picCats/AmericanShorthair.jpg');
+	},
+	mouseover:function(){
+	$('img').attr('src','../picCats/Abyssinian.jpg');
+	},
+	click:function(){
+	alert('bind함수를 이용한 연결테스트입니다');
+	}
+	})
+});
+```
